@@ -21,7 +21,13 @@ def create_number_list(start, end):
     """
     # TODO: Implement this function
     # Hint: Use range() and convert to list
+
+    x = list(range(start, end + 1))
+    return x
+
     pass
+
+create_number_list(1,5)
 
 
 def filter_even_numbers(numbers):
@@ -40,7 +46,15 @@ def filter_even_numbers(numbers):
     """
     # TODO: Implement this function
     # You can use a loop or list comprehension
+
+    even_list = []
+    for i in range(len(numbers)):
+        if numbers[i] % 2 == 0:
+            even_list.append(numbers[i])
+    return even_list
     pass
+
+filter_even_numbers([1,2,3,4,5,6,7,8,9,10])
 
 
 def square_numbers(numbers):
@@ -59,7 +73,14 @@ def square_numbers(numbers):
     """
     # TODO: Implement this function
     # Hint: Try a list comprehension!
+
+    for i in range(len(numbers)):
+        numbers[i] = numbers[i]**2
+    
+    return numbers
     pass
+
+square_numbers([1,2,3,4,5,6,7,8,9,10])
 
 
 def find_max_min(numbers):
@@ -78,8 +99,14 @@ def find_max_min(numbers):
     """
     # TODO: Implement this function
     # You can use max() and min() built-in functions
+
+    max_min = sorted(numbers)
+
+    return max_min[-1], max_min[0]
+
     pass
 
+find_max_min([1,3,4,2,6,3,2,1])
 
 def remove_duplicates(items):
     """
@@ -98,8 +125,15 @@ def remove_duplicates(items):
     # TODO: Implement this function
     # Hint: You can use a loop and check if item is already in result list
     # Or convert to set and back to list (but this doesn't preserve order)
+    items = sorted(items)
+    unique = []
+    for i in range(len(items)):
+        if i == 0 or items[i] != items[i-1]:
+            unique.append(items[i])
+    return unique
     pass
 
+remove_duplicates([1,1,2,3,3,3,4,4,4,4,4,5,5,5,6,7])
 
 def merge_lists(list1, list2):
     """
@@ -121,7 +155,16 @@ def merge_lists(list1, list2):
     """
     # TODO: Implement this function
     # Hint: Use a loop with index, handle different lengths
+
+    list_final = list1 + list2
+
+    return sorted(list_final)
+
     pass
+
+merge_lists([1, 3, 5], [2, 4, 6])
+merge_lists([1, 3, 5], [2, 4, 6]) 
+merge_lists([1, 2], [10, 20, 30, 40])
 
 
 def list_statistics(numbers):
@@ -143,8 +186,18 @@ def list_statistics(numbers):
 
     # TODO: Implement this function
     # Calculate and return a dictionary with the statistics
+
+    stats = {
+        'sum': sum(numbers),
+        'average': sum(numbers) / len(numbers),
+        'count': len(numbers),
+        'max': max(numbers),
+        'min': min(numbers)
+    }
+    return stats
     pass
 
+list_statistics([1,2,3,4,5])
 
 def chunk_list(items, chunk_size):
     """
@@ -163,8 +216,15 @@ def chunk_list(items, chunk_size):
     """
     # TODO: Implement this function
     # Hint: Use list slicing in a loop
+
+    chunks = []
+    for i in range(0, len(items), chunk_size):
+        chunks.append(items[i:i + chunk_size])
+    return chunks
+
     pass
 
+chunk_list([1, 2, 3, 4, 5, 6, 7], 2)
 
 # Test cases
 if __name__ == "__main__":
@@ -173,9 +233,9 @@ if __name__ == "__main__":
 
     # Test create_number_list
     print("Test 1: create_number_list(1, 5)")
-    result = create_number_list(1, 5)
-    print(f"Result: {result}")
-    assert result == [1, 2, 3, 4, 5], "Failed!"
+    results = create_number_list(1,5)
+    print(f"Result: {results}")
+    assert results == [1, 2, 3, 4, 5], "Failed!"
     print("✓ Passed\n")
 
     # Test filter_even_numbers
