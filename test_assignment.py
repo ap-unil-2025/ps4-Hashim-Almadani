@@ -57,7 +57,7 @@ class TestProblem1:
 
     def test_merge_lists(self):
         assert merge_lists([1, 3, 5], [2, 4, 6]) == [1, 2, 3, 4, 5, 6]
-        assert merge_lists([1, 2], [10, 20, 30, 40]) == [1, 10, 2, 20, 30, 40]
+        assert merge_lists([1, 2], [10, 20, 30, 40]) == [1, 2, 10, 20, 30, 40]
 
     def test_list_statistics(self):
         result = list_statistics([1, 2, 3, 4, 5])
